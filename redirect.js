@@ -1,6 +1,6 @@
 // Shared redirect configuration — single source of truth for all URLs
-const PORTFOLIO_URL = "https://sagargupta.online/portfolio-react/";
-const HOME_URL = "https://sagargupta.online/";
+const PORTFOLIO_URL = "https://anandram.me/portfolio-react/";
+const HOME_URL = "https://anandram.me/";
 
 function redirectToPortfolio() {
   window.location.replace(PORTFOLIO_URL);
