@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0] - 2026-10-11
+
+- Point the `anandram.me` root domain to the Anand Ram portfolio at `https://portfolio-01-4zvq.vercel.app/`
+- Restore working instant and delayed redirect behavior in `redirect.js`, `index.html`, and `404.html`
+- Replace stale Sagar Gupta/sagargupta.online metadata and documentation with Anand Ram branding
+- Keep the dark glassmorphism fallback design and `anandram.me` CNAME unchanged
+
 ## [2.1.1] - 2026-10-10
 
 - Stop blocking /assets/ and /portfolio-react/assets/ in robots.txt so crawlers can load the JS and CSS that render the portfolio
@@ -21,4 +28,4 @@
 
 ## [1.0.0] - 2023-07-14
 
-- Initial GitHub Pages site with custom domain (sagargupta.online)
+- Initial GitHub Pages site with custom domain

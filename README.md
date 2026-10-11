@@ -1,61 +1,48 @@
-# sagargupta.online
+# anandram.me
 
-Root domain handler for [sagargupta.online](https://sagargupta.online) -- redirects to the [main portfolio](https://sagargupta.online/portfolio-react/).
+Custom-domain entry point for Anand Ram's portfolio.
 
 ## How It Works
 
 ```
-sagargupta.online → instant redirect → sagargupta.online/portfolio-react/
+anandram.me → instant redirect → https://portfolio-01-4zvq.vercel.app/
 ```
 
-Three-layer redirect strategy:
-1. **JavaScript** (`redirect.js`) -- instant `window.location.replace()`
-2. **Meta refresh** -- no-JS fallback via `<meta http-equiv="refresh">`
-3. **Manual link** -- clickable button if both fail
+The root page uses three fallback layers:
+1. **JavaScript** (`redirect.js`) for the instant redirect
+2. **Meta refresh** for browsers with JavaScript disabled
+3. **Manual link** if both automatic methods are blocked
 
 The custom 404 page redirects to the portfolio after 5 seconds.
 
 ## SEO and Social
 
-- Open Graph and Twitter Card meta tags with 1200x630 PNG preview
-- JSON-LD structured data (Person schema with employer, university, social links)
-- XML sitemap covering all 10 GitHub Pages sites
-- robots.txt with sitemap reference
-- Content Security Policy via meta tag
+- Open Graph and Twitter Card metadata
+- JSON-LD structured data for Anand Ram
+- XML sitemap for the custom domain
+- `robots.txt` with sitemap reference
+- Content Security Policy via meta tags
 
 ## Files
 
 ```
 index.html          Landing page with instant redirect
 404.html            Branded 404 with delayed redirect
-redirect.js         Shared redirect config (single source of truth)
-style.css           Dark glassmorphism styling
-sitemap.xml         XML sitemap (10 URLs)
+redirect.js         Shared redirect configuration
+style.css           Dark glassmorphism fallback styling
+sitemap.xml         XML sitemap
 robots.txt          Crawler configuration
-CNAME               Custom domain: sagargupta.online
-assets/
-  og-image.png      Social media preview (1200x630)
-  favicon.svg       Browser favicon (SVG)
-  favicon.ico       Browser favicon (ICO fallback)
-  apple-touch-icon.png  iOS bookmark icon (180x180)
+CNAME               Custom domain: anandram.me
+assets/             Favicons and social preview image
 ```
 
-## DNS Setup (GoDaddy)
+## DNS Setup
 
-**A Records** (root domain `@`):
-
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-**CNAME** (`www`): `sagargupta16.github.io`
+Point the apex domain `anandram.me` to GitHub Pages using GitHub's published A records. If using `www`, point it to the GitHub Pages hostname configured for this repository.
 
 ## Deployment
 
-Push to `main` -- GitHub Pages deploys automatically. No build step.
+Push to `main` — GitHub Pages deploys automatically. No build step.
 
 ## License
 

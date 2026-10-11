@@ -1,16 +1,17 @@
-// Custom-domain root site: keep the homepage canonical and avoid self-redirect loops.
-const PORTFOLIO_URL = "https://anandram.me/";
-const HOME_URL = "https://anandram.me/";
+const PORTFOLIO_URL = "https://portfolio-01-4zvq.vercel.app/";
 
-function redirectToPortfolio() {
-  // Intentionally disabled to prevent redirect loops on the custom domain itself.
-  window.location.replace(HOME_URL);
-}
+(function redirectPortfolio() {
+  const mode = document.documentElement.dataset.redirect;
 
-// This file is kept for compatibility, but the site intentionally does not auto-redirect
-// the root page to itself or to an unverified destination.
-(function () {
-  if (window.location.hostname === "anandram.me" && window.location.pathname === "/") {
+  if (mode === "instant") {
+    window.location.replace(PORTFOLIO_URL);
     return;
+  }
+
+  const delaySeconds = Number(mode);
+  if (Number.isFinite(delaySeconds) && delaySeconds >= 0) {
+    window.setTimeout(() => {
+      window.location.replace(PORTFOLIO_URL);
+    }, delaySeconds * 1000);
   }
 })();
