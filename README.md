@@ -1,19 +1,16 @@
 # anandram.me
 
-Custom-domain entry point for Anand Ram's portfolio.
+Portfolio website served directly from GitHub Pages at [https://anandram.me/](https://anandram.me/).
 
 ## How It Works
 
+The site is served directly from this repository's `main` branch and repository root:
+
 ```
-anandram.me → instant redirect → https://portfolio-01-4zvq.vercel.app/
+GitHub Pages → anandram.me/
 ```
 
-The root page uses three fallback layers:
-1. **JavaScript** (`redirect.js`) for the instant redirect
-2. **Meta refresh** for browsers with JavaScript disabled
-3. **Manual link** if both automatic methods are blocked
-
-The custom 404 page redirects to the portfolio after 5 seconds.
+There is no external redirect. The homepage stays on `anandram.me`, and the custom 404 page provides a link back to the homepage without automatic navigation.
 
 ## SEO and Social
 
@@ -26,10 +23,10 @@ The custom 404 page redirects to the portfolio after 5 seconds.
 ## Files
 
 ```
-index.html          Landing page with instant redirect
-404.html            Branded 404 with delayed redirect
-redirect.js         Shared redirect configuration
-style.css           Dark glassmorphism fallback styling
+index.html          Portfolio homepage served at the domain root
+404.html            Branded 404 page with a link back home
+redirect.js         Retained compatibility file with redirect behavior disabled
+style.css           Dark glassmorphism styling
 sitemap.xml         XML sitemap
 robots.txt          Crawler configuration
 CNAME               Custom domain: anandram.me
@@ -42,7 +39,7 @@ Point the apex domain `anandram.me` to GitHub Pages using GitHub's published A r
 
 ## Deployment
 
-Push to `main` — GitHub Pages deploys automatically. No build step.
+GitHub Pages deploys the `main` branch from the repository root. Push to `main` to publish changes. No build step is required.
 
 ## License
 

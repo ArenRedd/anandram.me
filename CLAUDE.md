@@ -10,7 +10,7 @@
 
 ## Project
 
-Custom-domain entry point for Anand Ram's portfolio. `https://anandram.me/` redirects to the deployed portfolio at `https://portfolio-01-4zvq.vercel.app/`.
+Portfolio website served directly at `https://anandram.me/` through GitHub Pages.
 
 ## Stack
 
@@ -30,25 +30,25 @@ Open `http://localhost:8000`.
 
 ## Test
 
-No test suite. Verify that `index.html` redirects immediately and `404.html` redirects after 5 seconds. Confirm that `CNAME` remains exactly `anandram.me`.
+No test suite. Verify that `index.html` stays on the local homepage without a meta refresh or JavaScript navigation, that `404.html` only links back to the homepage, and that `CNAME` remains exactly `anandram.me`.
 
 ## Entry points
 
-- `index.html` — landing page with instant JS redirect, meta-refresh fallback, and manual link
-- `404.html` — branded 404 page with a 5-second redirect
-- `redirect.js` — shared redirect logic driven by the `<html data-redirect>` attribute
+- `index.html` — portfolio homepage served directly at the domain root
+- `404.html` — branded 404 page with a manual link home
+- `redirect.js` — retained compatibility file with redirect behavior disabled
 
 ## Key files
 
-- `redirect.js` — `PORTFOLIO_URL` is the redirect destination source of truth
+- `redirect.js` — intentionally contains no navigation logic
 - `CNAME` — custom domain binding; do not delete or rename it
 - `sitemap.xml` — sitemap for the custom domain
-- `style.css` — dark glassmorphism fallback styling
+- `style.css` — dark glassmorphism styling
 - `CHANGELOG.md` — semver changelog
 
 ## Gotchas
 
-- The redirect destination is duplicated in the meta-refresh tags and manual links. If the portfolio moves, update all of them and `redirect.js`.
+- Keep homepage navigation local to `anandram.me`; do not add external redirect destinations.
 - The CSP in `index.html` and `404.html` must allow any new external endpoint.
 - This repository is deployed as-is from `main`; there is no build step.
 
@@ -60,5 +60,5 @@ No test suite. Verify that `index.html` redirects immediately and `404.html` red
 ## Build / Deploy
 
 - Build: none
-- Deploy: push to `main`; GitHub Pages publishes automatically
+- Deploy: GitHub Pages publishes the `main` branch from the repository root
 - Output: `https://anandram.me/`
