@@ -1,24 +1,16 @@
-// Shared redirect configuration — single source of truth for all URLs
-const PORTFOLIO_URL = "https://anandram.me/portfolio-react/";
+// Custom-domain root site: keep the homepage canonical and avoid self-redirect loops.
+const PORTFOLIO_URL = "https://anandram.me/";
 const HOME_URL = "https://anandram.me/";
 
 function redirectToPortfolio() {
-  window.location.replace(PORTFOLIO_URL);
+  // Intentionally disabled to prevent redirect loops on the custom domain itself.
+  window.location.replace(HOME_URL);
 }
 
-// Read data-redirect from <html> element to determine behavior:
-//   "instant" → redirect immediately (index.html)
-//   "5"       → redirect after 5 seconds (404.html)
+// This file is kept for compatibility, but the site intentionally does not auto-redirect
+// the root page to itself or to an unverified destination.
 (function () {
-  const mode = document.documentElement.dataset.redirect;
-  if (!mode) return;
-
-  if (mode === "instant") {
-    redirectToPortfolio();
-  } else {
-    const seconds = Number.parseInt(mode, 10);
-    if (seconds > 0) {
-      setTimeout(redirectToPortfolio, seconds * 1000);
-    }
+  if (window.location.hostname === "anandram.me" && window.location.pathname === "/") {
+    return;
   }
 })();

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sagargupta.online/sitemap.xml
+Sitemap: https://anandram.me/sitemap.xml
